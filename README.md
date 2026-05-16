@@ -4,24 +4,36 @@ A [QuickSheet](https://github.com/cemheren/QuickSheet) extension that displays r
 
 See repo activity at a glance — right on your desktop or in your terminal.
 
-## Usage
+## Install
 
 In any QuickSheet cell, type:
 
 ```
-ext: gitlog:
+ext: github:cemheren/quicksheet-gitlog
 ```
 
-This shows the last 10 commits from the current directory.
+QuickSheet clones the repo, reads the manifest, and registers the `gitlog` prefix.
 
-### Options
+## Usage
+
+In any cell, type:
+
+```
+gitlog: /path/to/repo,4,5
+```
+
+The format is `gitlog: <path-or-count>,<columns>,<rows>` where the last two numbers define the output grid dimensions.
+
+### Examples
 
 | Cell content | Description |
 |---|---|
-| `ext: gitlog:` | Last 10 commits in current dir |
-| `ext: gitlog: 20` | Last 20 commits |
-| `ext: gitlog: /path/to/repo` | Commits from a specific repo |
-| `ext: gitlog: /path/to/repo 5` | Last 5 commits from a specific repo |
+| `gitlog: .,4,11` | Last 10 commits in current dir (4 columns × 11 rows) |
+| `gitlog: 20,4,21` | Last 20 commits (4 columns × 21 rows) |
+| `gitlog: /path/to/repo,4,11` | Commits from a specific repo |
+| `gitlog: /path/to/repo 5,4,6` | Last 5 commits from a specific repo |
+
+> **Note:** The last two comma-separated values are always the output grid dimensions (columns, rows). QuickSheet uses these to know how much space the extension output occupies.
 
 ## Output
 
@@ -47,20 +59,6 @@ Plus a summary row showing current branch and commit count.
 ├──────────┼──────────┼──────────────┼────────────────────────────────┤
 │ Branch: main │ Showing 4 commits │            │                        │
 └──────────┴──────────┴──────────────┴────────────────────────────────┘
-```
-
-## Install
-
-1. Clone this repo next to your QuickSheet installation
-2. QuickSheet auto-discovers extensions in sibling directories
-
-Or add manually to your extensions config:
-
-```json
-{
-  "name": "quicksheet-gitlog",
-  "entry": "dotnet run --project /path/to/quicksheet-gitlog"
-}
 ```
 
 ## Requirements
