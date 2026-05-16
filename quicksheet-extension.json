@@ -1,0 +1,11 @@
+{
+  "name": "quicksheet-gitlog",
+  "version": "1.0.0",
+  "description": "Recent git commits in your spreadsheet — see repo activity at a glance without leaving your workflow.",
+  "prefix": "gitlog:",
+  "author": "cemheren",
+  "entry": "dotnet run --project .",
+  "params": ["path_or_count"],
+  "protocol": "jsonlines-v1",
+  "repository": "https://github.com/cemheren/quicksheet-gitlog"
+}
