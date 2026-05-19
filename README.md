@@ -9,7 +9,7 @@ See repo activity at a glance — right on your desktop or in your terminal.
 In any QuickSheet cell, type:
 
 ```
-ext: github:cemheren/quicksheet-gitlog
+ext: github:Deskworks/quicksheet-gitlog
 ```
 
 QuickSheet clones the repo, reads the manifest, and registers the `gitlog` prefix.
